@@ -15,10 +15,38 @@ function getTime(){
     let m = addZero(date.getMinutes());
     let s = addZero(date.getSeconds());
 
-    for (let i = 0; i < h; i++){
+    function dec2bin(dec){
+        return (dec >>> 0).toString(2);
+    }
+
+    document.querySelector(".binary-hours").innerHTML = dec2bin(h);
+    let binary_h = dec2bin(h);
+    document.querySelector(".binary-minutes").innerHTML = dec2bin(m);
+    let binary_m = dec2bin(m);
+    document.querySelector(".binary-seconds").innerHTML = dec2bin(s);
+    let binary_s = dec2bin(s);
+
+    for (let i = 0; i < binary_h.length; i++){
         console.log("iteration ", i)
-        //document.createElement("SPAN");
-        document.querySelector(".hours-dot").style.backgroundColor = "red";
+        if (binary_h[i] == '1'){
+            document.getElementsByTagName("span")[i].style.backgroundColor = "red";
+        }
+        else{
+            document.getElementsByTagName("span")[i].style.backgroundColor = "grey";
+        }
+        
+    }
+
+    for (let i = 0; i < binary_m.length; i++){
+        console.log("iteration binary minutes", i)
+        if (binary_m[i] == '1'){
+            console.log('red ')
+            $('span.minutes-dot').css("background-color", "red");
+        }
+        else{
+            $('span.minutes-dot').css("background-color", "grey");
+        }
+        
     }
     
     if (h >= 6 && h < 12){
