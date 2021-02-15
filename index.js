@@ -41,10 +41,11 @@ function getTime(){
         console.log("iteration binary minutes", i)
         if (binary_m[i] == '1'){
             console.log('red ')
-            $('span.minutes-dot').css("background-color", "red");
+            $('span.minutes-dot').css("background-color", "red")[i];
         }
         else{
-            $('span.minutes-dot').css("background-color", "grey");
+            console.log('grey ')
+            $('span.minutes-dot').css("background-color", "grey")[i];
         }
         
     }
